@@ -1,17 +1,12 @@
-// DOM Selection
-// getElementById(); -> element
-const judul = document.getElementById("judul");
-judul.style.color = 'red';
-judul.style.backgroundColor = 'yellow';
+// DOM SELECTION #2
+// querySelector(); -> sama kyk css selector ex .wahyu (class wahyu).
+//  querySelectorAll(); -> sama kyk getElementsByTagName
 
-// getElementsByTagName(); -> HTML Collection -> Mengembalikan dalam bentuk objek
-const paragraf = document.getElementsByTagName('p');
-// paragraf[0].style.color = 'red';
-for (let i = 0; i < paragraf.length; i++) {
-    paragraf[i].style.backgroundColor = 'blue';
+const item2 = document.querySelector('#b ul li:nth-child(2)');
+item2.style.backgroundColor = 'orange';
+
+const allItem = document.querySelectorAll('#b ul li');
+
+for (let i = 0; i < allItem.length; i++) {
+    allItem[i].style.backgroundColor = 'blue';
 }
-
-// getElementByClassName(); -> HTML Collection -> Mengembalikan dalam bentuk objek
-
-const p1 = document.getElementsByClassName('p1');
-p1[0].innerHTML = 'Ini sudah dirubah dengan DOM';

@@ -1,28 +1,51 @@
-// DOM Manipulation
-// element.innerHTML
-// element.style.
-// element.setAttribue(), getAttribute(), removeAttribute().
-// element.classList : classList.add, classList.remove, classList.toggle, classList.item, classList.containts, classList.replace.
+// DOM Manipulation #2
+/*
+    document.createElement();
+    document.createTextNode();
+    node.appendChild();
+    node.insertBefore(a, b);
+    parentNode.remove();
+    parentNode.replace(a, b);
+*/
 
+// <!-- appendChild -->
+const pBaru = document.createElement('p');
+const pText = document.createTextNode('Paragraf Baru');
 
+pBaru.appendChild(pText);
 
-// <== setAttribute ==>  //
+const sectionA = document.getElementById('a');
+sectionA.appendChild(pBaru);
 
-const h1 = document.getElementById('judul');
+// <!-- insertBefore -->
+const itemBaru = document.createElement('li');
+const itemText = document.createTextNode('item Baru');
 
-h1.setAttribute('href', 'google.com');
+itemBaru.appendChild(itemText);
 
-// <== classList ==>  //
+const ul = document.querySelector('section#b ul');
+const item2 = ul.querySelector('li:nth-child(2)');
 
-const p2 = document.querySelector('.p2');
-p2.classList.add('test');
+ul.insertBefore(itemBaru, item2);
 
+// <!-- parentNode.removeChild(a) -->
+const a = document.getElementsByTagName('a')[0];
 
-// <== Tombol ==>  //
-document.getElementById('tombol').onclick = function () {
-    klikTombol();
-}
+sectionA.removeChild(a);
 
-function klikTombol() {
-    document.querySelector('.p2').classList.toggle('biru-muda');
-}
+// <!-- parentNode.replaceChild(a, b) -->
+const h2 = document.createElement('h2');
+const h2Text = document.createTextNode('Ini diganti h2');
+
+h2.appendChild(h2Text);
+
+const sectionB = document.getElementById('b');
+
+const paragraf4 = sectionB.querySelector('p');
+
+sectionB.replaceChild(h2, paragraf4);
+
+// Pewarnaan
+pBaru.style.backgroundColor = 'yellow';
+itemBaru.style.backgroundColor = 'yellow';
+h2.style.backgroundColor = 'yellow';

@@ -1,51 +1,28 @@
-// DOM Manipulation #2
+// DOM Events
 /*
-    document.createElement();
-    document.createTextNode();
-    node.appendChild();
-    node.insertBefore(a, b);
-    parentNode.remove();
-    parentNode.replace(a, b);
+    Inline HTML attribute -> Menimpa
+    Element method -> Menimpa
+    addEventListerner(); -> Tidak Menimpa
 */
 
-// <!-- appendChild -->
-const pBaru = document.createElement('p');
-const pText = document.createTextNode('Paragraf Baru');
+// <!-- Inline HTML [Paragraf 1] -->
+const paragraf1 = document.querySelector('section#a p');
 
-pBaru.appendChild(pText);
+function ubahWarna() {
+    paragraf1.style.backgroundColor = 'blue';
+}
 
-const sectionA = document.getElementById('a');
-sectionA.appendChild(pBaru);
+// <!-- Element Method [Paragraf 2] -->
+const paragraf2 = document.getElementsByClassName('p2')[0];
+paragraf2.onclick = ubahWarna;
 
-// <!-- insertBefore -->
-const itemBaru = document.createElement('li');
-const itemText = document.createTextNode('item Baru');
+// <!-- addEventListener() [Paragraf4] -->
+const paragraf4 = document.querySelector('section#b p');
+paragraf4.addEventListener('click', function () {
+    const sectionB = document.querySelector('section#b ul');
+    const li = document.createElement('li');
+    const text = document.createTextNode('item baru');
 
-itemBaru.appendChild(itemText);
-
-const ul = document.querySelector('section#b ul');
-const item2 = ul.querySelector('li:nth-child(2)');
-
-ul.insertBefore(itemBaru, item2);
-
-// <!-- parentNode.removeChild(a) -->
-const a = document.getElementsByTagName('a')[0];
-
-sectionA.removeChild(a);
-
-// <!-- parentNode.replaceChild(a, b) -->
-const h2 = document.createElement('h2');
-const h2Text = document.createTextNode('Ini diganti h2');
-
-h2.appendChild(h2Text);
-
-const sectionB = document.getElementById('b');
-
-const paragraf4 = sectionB.querySelector('p');
-
-sectionB.replaceChild(h2, paragraf4);
-
-// Pewarnaan
-pBaru.style.backgroundColor = 'yellow';
-itemBaru.style.backgroundColor = 'yellow';
-h2.style.backgroundColor = 'yellow';
+    li.appendChild(text);
+    sectionB.appendChild(li);
+});
